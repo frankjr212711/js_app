@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/main.css" />
+  <script defer src="/main.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      box-sizing: border-box;
+      font-family: "segoe UI";
+    }
+
+    :root {
+      --hue: 200;
+      --gray-12: #030507;
+      --gray-7: #495057;
+      --gray-0: #f8f9fa;
+      --gray-2: #e9ecef;
+      --gray-3: #dee2e6;
+      --gray-4: #ced4da;
+
+      --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
+      --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
+
+      --ease-spring-2: linear(0,
+          0.007,
+          0.029 2.2%,
+          0.118 4.7%,
+          0.625 14.4%,
+          0.826 19%,
+          0.902,
+          0.962,
+          1.008 26.1%,
+          1.041 28.7%,
+          1.064 32.1%,
+          1.07 36%,
+          1.061 40.5%,
+          1.015 53.4%,
+          0.999 61.6%,
+          0.995 71.2%,
+          1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+      /* overflow: hidden; */
+      background: #f0f0f0;
+      font-family: "segoe UI";
+      font-family: "open sans";
+    }
+  .toggle_switch label {
+        background: #333;
+  }
+  .toggle_switch label::after {
+    background: white;
+  }
+     .page_content .content_header {
+      background: #495057;
+    }
+
+    @media screen and (max-width: 768px) {}
+  </style>
+  <title>welcome_ahafo</title>
+</head>
+
+<body>
+  <noscript> Hello world </noscript>
+
+  <span class="settings_icon">
+     <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -960 960 960" width="24px" fill="#555"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
+  </span>
+
+  <nav>
+      <div class="logo_box">
+        <a href="/index.html">
+          <svg>
+            <style type="text/css">
+              .st0 {
+                fill: #ffffff;
+              }
+            </style>
+            <path
+              d="M6,2h20c2.2,0,4,1.8,4,4v20c0,2.2-1.8,4-4,4H6c-2.2,0-4-1.8-4-4V6C2,3.8,3.8,2,6,2z"
+            />
+            <path
+              class="st0"
+              d="M26,24l-4.9,2l-8.1-8l-5.1,4l-2-1V11l2-1l5.1,4l8-8L26,8V24z M15.7,16l5.3,4.1l0,0v-8.3L15.7,16L15.7,16z   M7.9,19.1L7.9,19.1L11,16l-3-3.1l0,0L7.9,19.1L7.9,19.1z"
+            />
+          </svg>
+        </a>
+      </div>
+
+       <ul class="nav_links">
+        <li><a href="/navPages/news.html">news</a></li>
+        <li><a href="/navPages/sports.html">sports</a></li>
+        <li><a href="/navPages/entertainment.html">entertainment</a></li>
+      </ul>
+  </nav>
+
+  <div class="notification_panel">
+    <header>
+      <p>Notification</p>
+     <div class="toggle_bell">
+          <span>
+            <a href="/settings.html">
+              <svg
+                height="34px"
+                viewBox="0 -960 960 960"
+                width="34px"
+                fill="#444"
+              >
+                <path
+                  d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"
+                />
+              </svg>
+            </a>
+          </span>
+          <div class="toggle_switch">
+            <input type="checkbox" id="toggle" />
+            <label for="toggle"></label>
+          </div>
+        </div>
+    </header>
+   <div class="cards">
+      <div class="cards">
+        <div class="card">
+          <a href="/pages/welcome_ahafo.html">
+            <img src="/imgs/chair01.jpg" alt="" />
+            <div class="details">
+              <h6>Welcome to Ahafo</h6>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.ipsum
+                dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="/pages/tyler_oliveira.html">
+            <img src="/imgs/chair02.jpg" alt="" />
+            <div class="details">
+              <h6>Tyler Oliveira</h6>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.ipsum
+                dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="/pages/drew_binsky.html">
+            <img src="/imgs/chair03.jpg" alt="" />
+            <div class="details">
+              <h6>Drew Binsky</h6>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.ipsum
+                dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="/pages/k_sheldon.html">
+            <img src="/imgs/chair05.jpg" alt="" />
+            <div class="details">
+              <h6>Kwadwo Sheldon</h6>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.ipsum
+                dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="/pages/k_manu.html">
+            <img src="/imgs/chair06.jpg" alt="" />
+            <div class="details">
+              <h6>Kwaku Manu</h6>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.ipsum
+                dolor sit amet consectetur adipisicing elit.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <aside class="sidebar">
+     <div class="linkBg"></div>
+      <div class="aside_header">
+        <div class="aside_logo_box">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            enable-background="new 0 0 24 24"
+            height="64px"
+            viewBox="0 0 24 24"
+            width="64px"
+            fill="#1f1f1f"
+          >
+            <g><rect fill="none" height="24" width="24" /></g>
+            <g>
+              <g>
+                <rect height="4" width="4" x="10" y="4" />
+                <rect height="4" width="4" x="4" y="16" />
+                <rect height="4" width="4" x="4" y="10" />
+                <rect height="4" width="4" x="4" y="4" />
+                <polygon points="14,12.42 14,10 10,10 10,14 12.42,14" />
+                <path
+                  d="M20.88,11.29l-1.17-1.17c-0.16-0.16-0.42-0.16-0.58,0L18.25,11L20,12.75l0.88-0.88C21.04,11.71,21.04,11.45,20.88,11.29z"
+                />
+                <polygon
+                  points="11,18.25 11,20 12.75,20 19.42,13.33 17.67,11.58"
+                />
+                <rect height="4" width="4" x="16" y="4" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+
+        <!-- burger_menu -->
+         <div class="burger_menu_container">
+
+           <div class="burger_menu">
+             <span></span>
+             <span></span>
+             <span></span>
+            </div>
+          </div>
+      </div>
+
+      <ul>
+        <li><a href="/navPages/news.html">news</a></li>
+        <li><a href="/navPages/sports.html">sports</a></li>
+        <li><a href="/navPages/entertainment.html">entertainment </a></li>
+      </ul>
+  </aside>
+
+
+    <div class="page_content">
+      <div class="content_header">
+        <h2 class="content_title">Welcome To Ahafo </h2>
+      </div>
+
+
+<div class="content">
+        <h4>Youtube Videos</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A magni aliquam beatae, incidunt, amet quis, ea totam odit sunt eaque deserunt repudiandae dolor corrupti rem impedit doloremque quo voluptates quaerat!</p>
+      </div>
+
+    </div>
+
+
+  <!-- SCRIPT.JS -->
+
+  <script>
+
+  </script>
+</body>
+
+</html>
