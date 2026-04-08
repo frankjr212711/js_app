@@ -590,6 +590,128 @@ The number of times the loop has been executed is four because when i equals 5, 
 
 
 
+let num = 0;
+for (let i = 1; i < 10; i++) {
+    if (i % 5 == 0) {
+        break;
+    }
+    num++;
+}
+// console.log(num);
+
+for (let i = 1; i < 5; i++) {
+    // console.log(i);
+}
+
+const obj = {
+    'name': 'ike',
+    'age': 22,
+    'adult': true
+}
+
+for (let keys in obj) {
+    if (keys.includes('name')) {
+        // console.log('available')    // x1 available
+    } else {
+        // console.log('not available') // x2 not available 
+    }
+}
+
+let num0 = 0;
+for (let i = 1; i < 10; i++) {
+    // console.log(i)
+    if (i % 5 == 0) {
+        continue;
+    }
+    num0++
+}
+// console.log(num0)   // 8
+
+let count = 0;
+for(let i = 0; i < 5; i++) {
+    // console.log(i)
+    if(i % 3 == 0) {
+        continue
+    }
+    count++
+}
+// console.log(count)  // 3
+
+
+const obj = { name: "", age: "", isAlive: true };
+for (const el of [2, 4, 6, 8]) {
+    console.log(el);
+}
+
+for (key in obj) {
+    console.log(key); // 'name', 'age', 'isAlive'
+}
+for (key in [2, 3, 4, 5]) {
+    console.log(key); // '0', '1', '2', '3'
+}
+
+// for (const key of obj) {    // obj is not iterable
+// console.log(key);
+// }
+
+
+
+
+
+// let count =4
+// const res = count > 3 ? 'true' : 'false';
+
+
+// console.log(res)
+
+
+
+let num = 0;
+for(let i =0; i <10;i++) {
+    console.log(num)
+    num++
+}
+
+let count = 0
+for(let i = 0; i < 5; i++) {
+    console.log(i)
+    console.log(count)
+    count++;
+}
+
+let arr = ['name', 'age', 22, true, ];
+
+for(let i = 0; i < arr.length; i++) {
+    console.log(arr[i])
+    
+    // console.log('remeo')
+}
+
+
+for(let key of arr) {
+    console.log(key)
+}
+
+
+
+
+/* Iterative Statements & method
+----------------------------------------------------------
+
+//for-each method 
+notification_links.forEach(items => console.log(items))
+
+
+// for statement
+for(let i = 0; i < notification_links.length; i++) console.log(notification_links[i]);
+
+
+// for-of statement
+for(let item of notification_links) console.log(item)
+
+
+
+
 
 
 /* 
@@ -689,8 +811,6 @@ switch(expression) {
         statement 
 }
 
-
-
 const i = 55
 switch(i) {
     case 25:
@@ -744,130 +864,6 @@ function diff(num1, num2) {
 
 
 
-
-
-const obj = { name: "", age: "", isAlive: true };
-for (const el of [2, 4, 6, 8]) {
-    console.log(el);
-}
-
-for (key in obj) {
-    console.log(key); // 'name', 'age', 'isAlive'
-}
-for (key in [2, 3, 4, 5]) {
-    console.log(key); // '0', '1', '2', '3'
-}
-
-// for (const key of obj) {    // obj is not iterable
-// console.log(key);
-// }
-
-
-
-
-
-// let count =4
-// const res = count > 3 ? 'true' : 'false';
-
-
-// console.log(res)
-
-
-
-let num = 0;
-for(let i =0; i <10;i++) {
-    console.log(num)
-    num++
-}
-
-let count = 0
-for(let i = 0; i < 5; i++) {
-    console.log(i)
-    console.log(count)
-    count++;
-}
-
-let arr = ['name', 'age', 22, true, ];
-
-for(let i = 0; i < arr.length; i++) {
-    console.log(arr[i])
-    
-    // console.log('remeo')
-}
-
-
-for(let key of arr) {
-    console.log(key)
-}
-
-
-
-
-/* Iterative Statements & method
--------------------------------------------------------
-
-//for-each method 
-notification_links.forEach(items => console.log(items))
-
-
-// for statement
-for(let i = 0; i < notification_links.length; i++) console.log(notification_links[i]);
-
-
-// for-of statement
-for(let item of notification_links) console.log(item)
-
 */
-
-
-
-
-
-let num = 0;
-for (let i = 1; i < 10; i++) {
-    if (i % 5 == 0) {
-        break;
-    }
-    num++;
-}
-// console.log(num);
-
-for (let i = 1; i < 5; i++) {
-    // console.log(i);
-}
-
-const obj = {
-    'name': 'ike',
-    'age': 22,
-    'adult': true
-}
-
-for (let keys in obj) {
-    if (keys.includes('name')) {
-        // console.log('available')    // x1 available
-    } else {
-        // console.log('not available') // x2 not available 
-    }
-}
-
-let num0 = 0;
-for (let i = 1; i < 10; i++) {
-    // console.log(i)
-    if (i % 5 == 0) {
-        continue;
-    }
-    num0++
-}
-// console.log(num0)   // 8
-
-let count = 0;
-for(let i = 0; i < 5; i++) {
-    // console.log(i)
-    if(i % 3 == 0) {
-        continue
-    }
-    count++
-}
-// console.log(count)  // 3
 
 

@@ -9,7 +9,6 @@ const search_form = document.querySelector("nav .search_form");
 const sidebar_links = document.querySelectorAll(".sidebar ul li a");
 
 
-
 settings_icon.addEventListener("click", function () {
   document.querySelector(".notification_panel").classList.toggle("active");
 });
