@@ -88,10 +88,17 @@ search_form.addEventListener("submit", function (e) {
 
 
 document.querySelector('.search_form').addEventListener('mouseenter', function() {
-    search_form.classList.add('wide')
-})
-document.querySelector('.search_form').addEventListener('mouseleave', function() {
+    search_form.classList.add('wide');
+    const form_row  = this.querySelector('.form_row');
+    const form_input = form_row.querySelector('input');
+    form_input.style.setProperty('border-color', 'deeppink');
+    console.log(form_input)
+  })
+  document.querySelector('.search_form').addEventListener('mouseleave', function() {
     search_form.classList.remove('wide')
+     const form_row  = this.querySelector('.form_row');
+    const form_input = form_row.querySelector('input');
+    form_input.style.removeProperty('border-color');
 })
 
 window.onload = toggleFn 
