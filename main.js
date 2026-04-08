@@ -26,33 +26,31 @@ for (let link of links) {
   }
 }
 
-
 function toggleFn() {
-    const toggle_input = toggle_switch.querySelector('input');
-    toggle_input.addEventListener('change', function(e) {
-        document.body.classList.toggle('bg_color');
-        document.querySelector('.notification_panel').classList.toggle('enter_color')
-    })
-    
+  const toggle_input = toggle_switch.querySelector('input');
+  toggle_input.addEventListener('change', function (e) {
+    document.body.classList.toggle('bg_color');
+    document.querySelector('.notification_panel').classList.toggle('enter_color')
+  })
 };
 
 burger_menu.addEventListener("click", function (e) {
-    document.body.classList.toggle("open");
+  document.body.classList.toggle("open");
 });
 
 sidebar.addEventListener("mouseleave", function () {
-    document.body.classList.remove("open");
+  document.body.classList.remove("open");
 });
 
 for (let link of sidebar_links) {
   link.addEventListener("mouseenter", function (e) {
     const coords = {
-        width: link.getBoundingClientRect().width,
-        height: link.getBoundingClientRect().height,
-        top: link.getBoundingClientRect().top,
-        bottom: link.getBoundingClientRect().bottom,
-        left: link.getBoundingClientRect().left,
-        right: link.getBoundingClientRect().right,
+      width: link.getBoundingClientRect().width,
+      height: link.getBoundingClientRect().height,
+      top: link.getBoundingClientRect().top,
+      bottom: link.getBoundingClientRect().bottom,
+      left: link.getBoundingClientRect().left,
+      right: link.getBoundingClientRect().right,
     };
 
     linkBg.style.setProperty("width", `${coords.width}px`);
@@ -69,36 +67,30 @@ search_form.addEventListener("submit", function (e) {
   e.preventDefault();
   const form_row = e.target.querySelector(".form_row");
   const search_value = form_row.querySelector("input[type='search']").value;
-    
+
   if (search_value == "") return;
-//   document.querySelector("input[type='search']").value = "";
+  //   document.querySelector("input[type='search']").value = "";
 
   setTimeout(() => {
-    document.querySelector('.search_form input').value = ''    
+    document.querySelector('.search_form input').value = ''
     console.log('timeout')
   }, 1000);
-//   console.log(search_value);
+  //   console.log(search_value);
 });
 
+document.querySelector('.search_form').addEventListener('mouseenter', function () {
+  search_form.classList.add('wide');
+  const form_row = this.querySelector('.form_row');
+  const form_input = form_row.querySelector('input');
+  form_input.style.setProperty('border-color', 'deeppink');
+  console.log(form_input)
+})
 
-
-
-
-
-
-
-document.querySelector('.search_form').addEventListener('mouseenter', function() {
-    search_form.classList.add('wide');
-    const form_row  = this.querySelector('.form_row');
-    const form_input = form_row.querySelector('input');
-    form_input.style.setProperty('border-color', 'deeppink');
-    console.log(form_input)
-  })
-  document.querySelector('.search_form').addEventListener('mouseleave', function() {
-    search_form.classList.remove('wide')
-     const form_row  = this.querySelector('.form_row');
-    const form_input = form_row.querySelector('input');
-    form_input.style.removeProperty('border-color');
+document.querySelector('.search_form').addEventListener('mouseleave', function () {
+  search_form.classList.remove('wide')
+  const form_row = this.querySelector('.form_row');
+  const form_input = form_row.querySelector('input');
+  form_input.style.removeProperty('border-color');
 })
 
 window.onload = toggleFn 
