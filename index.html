@@ -387,7 +387,7 @@
       .notificate_bells.active {
         display: block;
       }
-      .notificate_bells li.active {
+      .notificate_bells li.notice {
         background: #ddd;
       }
 
@@ -846,7 +846,7 @@
         const notication_bt = document.querySelector('.youtube_btns .notication_bt');
         const carret = document.querySelector('.youtube_btns .carret');
         const notificate_bells = document.querySelector('.notificate_bells');
-        const notificate_items = document.querySelectorAll('.notificate_bells li');
+        const notification_links = document.querySelectorAll('.notificate_bells li');
 
 
         notication_bt.addEventListener('click', function(e) {
@@ -857,15 +857,15 @@
           this.classList.remove('active');
         })
 
-        for(let item of notificate_items) {
-          item.addEventListener('click', function() {
-            const activeItem = item.querySelector('.active')
-            if(activeItem) {
-              activeItem.classList.remove('active');
+        notification_links.forEach(link => {
+          link.addEventListener('click', function() {
+            const current_active = document.querySelector('.notice')
+            if(current_active) {
+              current_active.classList.remove('notice');
             }
-            item.classList.add('active');
+            link.classList.add('notice');
           })
-        }
+        } )
 
     </script>
   </body>
