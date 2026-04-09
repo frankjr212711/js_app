@@ -198,7 +198,7 @@ nav .logo_box a svg {
   height: auto;
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 20px;
   padding: 2rem ;
   overflow: auto;
   transform: translateX(-45%) scale(0.89);
