@@ -864,6 +864,194 @@ function diff(num1, num2) {
 
 
 
+
+/* 
+    VARIABLES, SCOPE, AND MEMORY
+----------------------------------------------------------
+
+The	nature of variables in JavaScript, as defined in ECMA-262, is quite unique compared to that of other languages. Being loosely typed, a variable is literally just a name for a particular value at a particular time. Because there	are	no rules defining the type of data that	a variable must hold, a variable's value and data type can change during the lifetime of a script.Though this is an interesting, powerful, and problematic feature, there are many more complexities related to variables
+
+
+/*
+    PRIMITIVE AND REFERENCE VALUES
+-----------------------------------------------------
+
+ECMAScript variables may contain two different types of data: primitive and reference values. 
+
+Primitive values are simple atomic pieces of data, while reference values are object that may be made up of multiple values. When a value is assigned to a variable, the JavaScript engine must determine if it's a primitive or a reference value. The seven primitive types were discussed in the previous chapter: 
+
+1. Undefined
+2. Null
+3. Boolean 
+4. Number
+5. BigIn
+6. String
+7. Symbol
+
+These variables are said to be accessed by value, because you are manipulating the actual value stored in the variable.
+
+Reference values are objects stored in memory. Unlike other languages, JavaScript does not permit direct access of memory locations, so direct manipulation of the object's memory space is not allowed. When you manipulate an object, you're really working on a reference to that object rather than the actual object itself. 
+
+Reference values are accessed by reference.
+
+
+/* 
+    DYNAMIC PROPERTIES
+--------------------------------------------
+
+Primitive and reference values are defined similarly: a variable is created and assigned a value. What you can do with those values once they're stored in a variable, however, is quite different. 
+
+When you work with reference values, you can add, change, or delete properties and methods at any time.
+
+eg.
+
+let person = new Object();
+    person.name = 'Alice'
+    console.log(person.name) // 'Alice'
+
+
+Here, an object is created and stored in the variable person. Next, a property called name is added and assigned the string value of “Alice.” The new property is then accessible from that point on, until the object is destroyed or the property is explicitly removed.
+
+Primitive values can't have properties added to them even though attempting to do so won't cause an error.
+
+
+
+
+
+let name = "Alice";
+name.age = 22;
+console.log(name.age)       // undefined
+
+
+Here, a property called age is defined on the string name and assigned a value of 22. On the very next line, however, the property is gone. Only reference values can have properties defined dynamically for late use.
+
+Note that the instantiation of a primitive type can be accomplished using only the primitive literal form. If you were to use the new keyword, JavaScript will create an Object type, but one that behaves like a primitive. 
+
+eg.
+
+let name1 = 'Alice';
+let name2 = new String('Bob');
+name1.age = 22;
+name2.age = 33;
+
+//  console.log(name1.age) // undefined
+//  console.log(name2.age)
+
+// console.log(typeof name1)   // 'string'
+// console.log(typeof name2)   // 'object'
+
+
+
+/* 
+    COPYING VALUES
+--------------------------------------------------
+Aside from differences in how they are stored, primitive, and reference values act differently when copied from one variable to another. When a primitive value is assigned from one variable to another, the value stored on the variable object is created and copied into the lcoation for the new variable.
+
+eg. 
+
+
+
+OBJECT VALUE VARIABLE
+-----------------------------------
+
+let num1 = 5;
+let num2 = num1;
+
+
+console.log(num1, num2) // '5', '5'
+
+Here, num1 contains the value of 5. When num2 is initialized to num1, it also gets the value of 5. This value is completely separate from the one that is stored in num1 because it's a copy of that value.
+
+Each of these variables can now be used separately with no side effects. 
+
+figure 4.1
+
+Variable object before copy
+----------------------------------
+    num1 = 5 (Number type)
+
+
+Variable object after copy
+----------------------------------
+num2 = 5 (Number type)
+num1 = 5 (Number type)
+
+
+REFERENCE VALUE VARIABLE
+------------------------------------
+
+When a reference value is assigned from one variable to another, the value stored on the variable object is also copied into the location for the new variable. The difference is that this value is actually a pointer to an object store on the HEAP.
+Once the operation is complete, two variables point to exactly the same object, so changes to one are reflected on the other, as in the ff. eg.
+
+
+
+let obj1 = new Object();
+let obj2 = obj1;
+obj1.name = 'Alice';
+
+    console.log(obj2);  // {name: 'Alice'}
+
+
+
+In this example, the variable obj1 is filled with a	new instance of an object. This value is then copied into obj2, meaning that both variables are now pointing to the same object. When the property name is set on obj1, it can later be accessed from obj2 because they both point to the same object.
+
+Figure	4.2
+shows the relationship between the variables on the variable object and the object on the heap
+
+
+    ARGUMENT PASSING
+-----------------------------
+
+All function arguments in ECMAScript are passed by value. This means that the value outside of the function is copied into an argument on the  inside of the function the same way a value is copied from one variable to another.
+
+If the value is primitive, then it acts just like a primitive variable copy, and if the value is a reference, it acts just like a reference variable copy. 
+
+This is often a point of confusion for developers because variables are accessed both by value and by reference, but arguments are passed only by value. 
+
+When an argument is passed by value, the value is copied into a local variable (a named argument and, in ECMAScript, a slot in the arguments object). 
+
+When an argument is passed by reference, the location of the value in memory is stored into a local variable, which means that changes to the local variable are reflected outside of the function. (This is not possible in ECMAScript).
+
+eg.
+
+
+
+
+
+function addten(num) {
+    num += 10;
+    return num;
+}
+let count = 20;
+let result = addten(count);
+console.log(count)          // 20 - no change
+console.log(result);        // 30
+
+Here, the function addten() has an argument, num, which is essentially a local variable. When called, the variable count is passed in as an argument. This variable has a value of 20, which is copied into the argument num for use inside of addten(). 
+
+Within the function, the argument num has its value changed by adding 10, but this doesn't change the original count that exists outside of the function. The argument num and the variable count do not recognize each other; they only happen to have the same value. If num had been passed by reference, then the value of count would have changed to 30 to reflect the change made inside the function. This fact is obvious when using primitive values such as numbers, but things aren't as clear when using objects.
+
+eg.
+
 */
 
+function setname(obj) {
+    obj.name = 'Alice';
+    obj.age = 22
+}
 
+let person = new Object();
+console.log(person)         // {}
+
+setname(person);
+console.log(person.name, person.age)    // 'Alice'
+
+
+const oObj = {name: 'ike', age: 22, isAdult: false}
+
+function hasObject(obj) {
+    return [obj.name, obj.age, obj.isAdult]
+}
+
+const res = hasObject(oObj);
+console.log(res)

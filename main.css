@@ -98,8 +98,8 @@ body {
 
   background: #e9ecef;
   background-image: var(--linear-gradient-02);
-  font-family: "segoe UI";
-  font-family: "open sans";
+  /* font-family: "segoe UI"; */
+  font-family: "Open sans";
 }
 
 .open .page_moral {
@@ -194,12 +194,13 @@ nav .logo_box a svg {
   position: absolute;
   top: 52px;
   background: white;
-  width: 63%;
+  min-width: 63%;
   height: auto;
   display: flex;
   justify-content: center;
   gap: 3rem;
-  padding: 2rem 0;
+  padding: 2rem ;
+  overflow: auto;
   transform: translateX(-45%) scale(0.89);
   /* border: 1px solid #eee; */
   border-radius: 8px;
