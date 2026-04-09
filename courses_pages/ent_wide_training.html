@@ -60,6 +60,7 @@
       background: #e2e1dd;
       background: #d9d2d0;
       padding: 3rem 4rem;
+      overflow: auto;
     }
 
     .page_content h1 {
@@ -89,6 +90,36 @@
       cursor: pointer;
     }
 
+       /* sample_buttons */
+      .sample_btns {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        /* padding: 1rem; */
+        border-radius: 50px;
+        /* background: rgba(255, 255, 255, .5); */
+        background: #fff;
+        box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
+        border: 2px solid white;
+      }
+      .sample_btns li {
+        display: inline-block;
+        padding: 0.25rem;
+        /* border: 1px solid red; */
+      }
+      .sample_btns li a {
+        width: 100%;
+        padding: 0.55rem .7rem;
+        border-radius: 50px;
+        display: inline-block;
+        transition: 0.3s var(--ease-2);
+        border: 1px solid lime;
+        border: 1px solid #eee;
+      }
+
+      .sample_btns li a:hover {
+        background: #f0f0f0;
+      }
     .toggle_switch label::after {
       background: white;
     }
@@ -262,6 +293,88 @@
     <p>Keep your people engaged and help them grow.</p>
 
     <button>Request a demo</button>
+
+
+     <div class="sample_buttons">
+          <ul class="sample_btns">
+            <li>
+              <a href="/courses_pages/ent_wide_training.html">
+                <svg
+                  fill="#555"
+                  width="30px"
+                  height="30px"
+                  viewBox="0 0 32 32"
+                  id="icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: none;
+                      }
+                    </style>
+                  </defs>
+                  <title>logo--youtube</title>
+                  <path
+                    d="M29.41,9.26a3.5,3.5,0,0,0-2.47-2.47C24.76,6.2,16,6.2,16,6.2s-8.76,0-10.94.59A3.5,3.5,0,0,0,2.59,9.26,36.13,36.13,0,0,0,2,16a36.13,36.13,0,0,0,.59,6.74,3.5,3.5,0,0,0,2.47,2.47C7.24,25.8,16,25.8,16,25.8s8.76,0,10.94-.59a3.5,3.5,0,0,0,2.47-2.47A36.13,36.13,0,0,0,30,16,36.13,36.13,0,0,0,29.41,9.26ZM13.2,20.2V11.8L20.47,16Z"
+                  />
+                  <rect
+                    id="_Transparent_Rectangle_"
+                    data-name="&lt;Transparent Rectangle&gt;"
+                    class="cls-1"
+                    width="32"
+                    height="32"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="30px"
+                  viewBox="0 -960 960 960"
+                  width="30px"
+                  fill="#555"
+                >
+                  <path
+                    d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="30px"
+                  viewBox="0 -960 960 960"
+                  width="30px"
+                  fill="#555"
+                >
+                  <path
+                    d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="30px"
+                  viewBox="0 -960 960 960"
+                  width="30px"
+                  fill="#1f1f1f"
+                >
+                  <path
+                    d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
   </div>
   <!-- SCRIPT.JS -->
 
