@@ -647,7 +647,7 @@
         <div class="sample_buttons">
           <ul class="sample_btns">
             <li>
-              <a href="/courses_pages/ent_wide_training.html">
+              <a class="youtube" href="/courses_pages/ent_wide_training.html">
                 <svg
                   fill="#555"
                   width="30px"
@@ -708,7 +708,7 @@
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="" class="more_icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
@@ -744,6 +744,11 @@
             .querySelector(".content_header")
             .classList.toggle("bg_slateblue");
         });
+
+        document.querySelector('.sample_btns .more_icon').addEventListener('click', function(e) {
+          e.preventDefault()
+          document.querySelector('.notification_panel').classList.toggle('active');
+        })
     </script>
   </body>
 </html>
