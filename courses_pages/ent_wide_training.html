@@ -65,10 +65,10 @@
       }
 
       .page_content h1 {
-        font-size: 45px;
+        font-size: 55px;
         width: 560px;
-        /* font-family: "times New Roman"; */
-        font-family: "open sans";
+        font-family: "times New Roman";
+        /* font-family: "open sans"; */
         font-weight: 700;
         color: #222;
       }
@@ -90,8 +90,30 @@
         border-radius: 6px;
         cursor: pointer;
       }
-
+      .page_content .items {
+        display: flex;
+      }
+      .page_content .message {
+        /* border: 1px solid red; */
+      }
      
+      .page_content .image_box img {
+         webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 10%,
+        transparent
+      );
+
+      mask: linear-gradient(
+        90deg,
+        transparent,
+        white 25%,
+        white 100%,
+        transparent
+      );
+      }
 
 
       @media screen and (max-width: 768px) {
@@ -284,16 +306,9 @@
     </aside>
 
     <div class="page_content">
-      <p>ENTERPRISE-WIDE TRAINING</p>
-      <h1>Upskill your entire workforce</h1>
-
-      <p>Keep your people engaged and help them grow.</p>
-
-      <button>Request a demo</button>
-
-      <div class="sample_buttons">
-        <ul class="sample_btns">
-          <li>
+  <div class="sample_buttons">
+          <ul class="sample_btns">
+            <li>
             <a href="/courses_pages/ent_wide_training.html">
               <svg
                 fill="#555"
@@ -323,8 +338,8 @@
                 />
               </svg>
             </a>
-          </li>
-          <li>
+            </li>
+            <li>
             <a href="/items_pages/ciara.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -338,8 +353,8 @@
                 />
               </svg>
             </a>
-          </li>
-          <li>
+            </li>
+            <li>
             <a href="/items_pages/chesterfield.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -353,8 +368,8 @@
                 />
               </svg>
             </a>
-          </li>
-          <li>
+            </li>
+            <li>
             <a href="/items_pages/milano.html" class="more_icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -368,9 +383,34 @@
                 />
               </svg>
             </a>
-          </li>
+            </li>
         </ul>
       </div>
+
+      <div class="items">
+ <div class="message">
+
+        <p>ENTERPRISE-WIDE TRAINING</p>
+        <h1>Upskill your entire workforce</h1>
+        
+        <p>Keep your people engaged and help them grow.</p>
+        
+        <button>Request a demo</button>
+      </div>
+
+      <div class="image_box">
+        <img src="/imgs/img_04.jpg" alt="">
+      </div>
+      </div>
+     
+
+
+
+        
+      
+
+
+
     </div>
     <!-- SCRIPT.JS -->
 

@@ -7,7 +7,13 @@
   list-style: none;
   text-decoration: none;
 }
-
+img, picture, svg, video {
+  display: block;
+  width: 100%;
+}
+input, textarea, button, select {
+  font: inherit;
+}
 :root {
   --gray-0: #f8f9fa;
   --gray-1: #f1f3f5;
@@ -42,50 +48,46 @@
   --ease-out-4: cubic-bezier(0, 0, 0.1, 1);
   --ease-out-5: cubic-bezier(0, 0, 0, 1);
 
-  --ease-spring-2: linear(
-    0,
-    0.007,
-    0.029 2.2%,
-    0.118 4.7%,
-    0.625 14.4%,
-    0.826 19%,
-    0.902,
-    0.962,
-    1.008 26.1%,
-    1.041 28.7%,
-    1.064 32.1%,
-    1.07 36%,
-    1.061 40.5%,
-    1.015 53.4%,
-    0.999 61.6%,
-    0.995 71.2%,
-    1
-  );
+  --ease-spring-2: linear(0,
+      0.007,
+      0.029 2.2%,
+      0.118 4.7%,
+      0.625 14.4%,
+      0.826 19%,
+      0.902,
+      0.962,
+      1.008 26.1%,
+      1.041 28.7%,
+      1.064 32.1%,
+      1.07 36%,
+      1.061 40.5%,
+      1.015 53.4%,
+      0.999 61.6%,
+      0.995 71.2%,
+      1);
 
-  --ease-spring-4: linear(
-    0,
-    0.009,
-    0.037 1.7%,
-    0.153 3.6%,
-    0.776 10.3%,
-    1.001,
-    1.142 16%,
-    1.185,
-    1.209 19%,
-    1.215 19.9% 20.8%,
-    1.199,
-    1.165 25%,
-    1.056 30.3%,
-    1.008 33%,
-    0.973,
-    0.955 39.2%,
-    0.953 41.1%,
-    0.957 43.3%,
-    0.998 53.3%,
-    1.009 59.1% 63.7%,
-    0.998 78.9%,
-    1
-  );
+  --ease-spring-4: linear(0,
+      0.009,
+      0.037 1.7%,
+      0.153 3.6%,
+      0.776 10.3%,
+      1.001,
+      1.142 16%,
+      1.185,
+      1.209 19%,
+      1.215 19.9% 20.8%,
+      1.199,
+      1.165 25%,
+      1.056 30.3%,
+      1.008 33%,
+      0.973,
+      0.955 39.2%,
+      0.953 41.1%,
+      0.957 43.3%,
+      0.998 53.3%,
+      1.009 59.1% 63.7%,
+      0.998 78.9%,
+      1);
   --linear-gradient-02:
     radial-gradient(circle at 35% 50%, rgba(5, 88, 255, 0.15), transparent 50%),
     radial-gradient(circle at 65% 50%, rgba(128, 0, 74, 0.15), transparent 50%),
@@ -120,6 +122,7 @@ body {
   color: #fff;
   transition: 0.3s ease;
 }
+
 .settings_icon {
   position: absolute;
   top: 1rem;
@@ -192,7 +195,7 @@ nav .logo_box a svg {
 
 .nav_links .nav_dropdown {
   position: absolute;
-  top: 52px;
+  /* top: 150px; */
   background: white;
   min-width: 63%;
   height: auto;
@@ -206,14 +209,15 @@ nav .logo_box a svg {
   border-radius: 8px;
   box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.13);
   z-index: 999999;
-  transition: 0.5s var(--ease-spring-2);
+  transition: 0.3s var(--ease-spring-2);
 
   visibility: hidden;
   opacity: 0;
 }
+
 .nav_links .nav_dropdown_ {
   position: absolute;
-  top: 52px;
+  /* top: 150px; */
   background: white;
   width: 250px;
   padding: 1rem;
@@ -221,19 +225,21 @@ nav .logo_box a svg {
   transform: translateX(-35%) scale(0.89);
   border-radius: 8px;
   z-index: 55;
-  transition: 1s var(--ease-spring-2);
+  transition: .3s var(--ease-spring-2);
 
   visibility: hidden;
   opacity: 0;
 }
 
 .nav_links li:hover .nav_dropdown {
+    top: 56px;
   visibility: visible;
   opacity: 1;
   transform: translateX(-45.5%) scale(1);
 }
 
 .nav_links li:hover .nav_dropdown_ {
+    top: 56px;
   visibility: visible;
   opacity: 1;
   transform: translateX(-35.5%) scale(1);
@@ -244,6 +250,7 @@ nav .logo_box a svg {
   color: slategray;
   padding: 1rem 0;
 }
+
 .nav_links li .nav_dropdown_ a,
 .nav_links li .nav_dropdown .team a,
 .nav_links li .nav_dropdown .industry a,
@@ -265,6 +272,7 @@ nav .logo_box a svg {
 .nav_links li .nav_dropdown_ a:hover {
   color: slateblue !important;
 }
+
 .nav_links li .nav_dropdown a:hover {
   color: slateblue !important;
 }
@@ -290,6 +298,7 @@ nav .logo_box a svg {
 
 .nav_links li:hover {
   background: deeppink;
+
   & a {
     color: white;
   }
@@ -409,7 +418,7 @@ nav .logo_box a svg {
   display: none;
 }
 
-.toggle_switch input[type="checkbox"]:checked + label::after {
+.toggle_switch input[type="checkbox"]:checked+label::after {
   left: 17px;
 }
 
@@ -635,6 +644,7 @@ nav .logo_box a svg {
   cursor: pointer;
   transition: 0.3s ease;
 }
+
 .search_form .form_row button:hover {
   background: #e9ecef;
 }
@@ -659,12 +669,15 @@ nav .logo_box a svg {
   background: #fff;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
   border: 2px solid white;
+  z-index: 99999
 }
+
 .sample_btns li {
   display: inline-block;
   padding: 0.25rem;
   /* border: 1px solid red; */
 }
+
 .sample_btns li a {
   width: 100%;
   padding: 0.55rem 0.7rem;
@@ -678,9 +691,11 @@ nav .logo_box a svg {
 .sample_btns li a:hover {
   background: #f0f0f0;
 }
+
 .toggle_switch label::after {
   background: white;
 }
+
 /* injected classes from js */
 .sample_btns li a.triggered {
   background: #eee;
