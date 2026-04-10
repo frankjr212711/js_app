@@ -7,12 +7,17 @@
   list-style: none;
   text-decoration: none;
 }
-img, picture, svg, video {
+img,
+picture,
+svg,
+video {
   display: block;
   width: 100%;
-
 }
-input, textarea, button, select {
+input,
+textarea,
+button,
+select {
   font: inherit;
 }
 :root {
@@ -49,46 +54,50 @@ input, textarea, button, select {
   --ease-out-4: cubic-bezier(0, 0, 0.1, 1);
   --ease-out-5: cubic-bezier(0, 0, 0, 1);
 
-  --ease-spring-2: linear(0,
-      0.007,
-      0.029 2.2%,
-      0.118 4.7%,
-      0.625 14.4%,
-      0.826 19%,
-      0.902,
-      0.962,
-      1.008 26.1%,
-      1.041 28.7%,
-      1.064 32.1%,
-      1.07 36%,
-      1.061 40.5%,
-      1.015 53.4%,
-      0.999 61.6%,
-      0.995 71.2%,
-      1);
+  --ease-spring-2: linear(
+    0,
+    0.007,
+    0.029 2.2%,
+    0.118 4.7%,
+    0.625 14.4%,
+    0.826 19%,
+    0.902,
+    0.962,
+    1.008 26.1%,
+    1.041 28.7%,
+    1.064 32.1%,
+    1.07 36%,
+    1.061 40.5%,
+    1.015 53.4%,
+    0.999 61.6%,
+    0.995 71.2%,
+    1
+  );
 
-  --ease-spring-4: linear(0,
-      0.009,
-      0.037 1.7%,
-      0.153 3.6%,
-      0.776 10.3%,
-      1.001,
-      1.142 16%,
-      1.185,
-      1.209 19%,
-      1.215 19.9% 20.8%,
-      1.199,
-      1.165 25%,
-      1.056 30.3%,
-      1.008 33%,
-      0.973,
-      0.955 39.2%,
-      0.953 41.1%,
-      0.957 43.3%,
-      0.998 53.3%,
-      1.009 59.1% 63.7%,
-      0.998 78.9%,
-      1);
+  --ease-spring-4: linear(
+    0,
+    0.009,
+    0.037 1.7%,
+    0.153 3.6%,
+    0.776 10.3%,
+    1.001,
+    1.142 16%,
+    1.185,
+    1.209 19%,
+    1.215 19.9% 20.8%,
+    1.199,
+    1.165 25%,
+    1.056 30.3%,
+    1.008 33%,
+    0.973,
+    0.955 39.2%,
+    0.953 41.1%,
+    0.957 43.3%,
+    0.998 53.3%,
+    1.009 59.1% 63.7%,
+    0.998 78.9%,
+    1
+  );
   --linear-gradient-02:
     radial-gradient(circle at 35% 50%, rgba(5, 88, 255, 0.15), transparent 50%),
     radial-gradient(circle at 65% 50%, rgba(128, 0, 74, 0.15), transparent 50%),
@@ -147,15 +156,15 @@ nav {
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid #fff; */
-
+  padding-left: 1rem;
   position: sticky;
   top: 5px;
   background: white;
   border-radius: 50px;
-  padding: 0 1rem;
+  /*padding: 0 1rem;*/
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.13);
   /* border: 1px solid red; */
-
+  font-family: "StackSansText";
 }
 
 nav .logo_box a svg {
@@ -171,9 +180,11 @@ nav .logo_box a svg {
 .nav_links li a:is(:link, :visited) {
   color: #333 !important;
   font-weight: 600;
+  font-size: 14px;
   display: inline-block;
   padding: 0.5rem 0;
   border-radius: 50px;
+  font-family: "Open Sans";
 }
 
 /* link.active */
@@ -218,7 +229,9 @@ nav .logo_box a svg {
   transform: translateX(-45%) scale(0.89);
   /* border: 1px solid #eee; */
   border-radius: 8px;
-  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.13), inset 2px 2px 2px 0 rgb(255, 255, 255);
+  box-shadow:
+    1px 2px 3px 0 rgba(0, 0, 0, 0.13),
+    inset 2px 2px 2px 0 rgb(255, 255, 255);
   z-index: 999999;
   transition: 0.3s var(--ease-spring-2);
 
@@ -236,22 +249,21 @@ nav .logo_box a svg {
   transform: translateX(-35%) scale(0.89);
   border-radius: 8px;
   z-index: 55;
-  transition: .3s var(--ease-spring-2);
+  transition: 0.3s var(--ease-spring-2);
 
   visibility: hidden;
   opacity: 0;
 }
 
 .nav_links li:hover .nav_dropdown {
-    top: 50px;
+  top: 50px;
   visibility: visible;
   opacity: 1;
   transform: translateX(-45.5%) scale(1);
-
 }
 
 .nav_links li:hover .nav_dropdown_ {
-    top: 56px;
+  top: 56px;
   visibility: visible;
   opacity: 1;
   transform: translateX(-35.5%) scale(1);
@@ -305,8 +317,12 @@ nav .logo_box a svg {
 } */
 
 .nav_links li {
-  padding: 0.5rem;
-    /* border-radius: 25px; */
+  padding: 0.5rem 1rem;
+  /* border-radius: 25px; */
+}
+.nav_links li:nth-child(5) {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 .nav_links li:hover {
@@ -430,7 +446,7 @@ nav .logo_box a svg {
   display: none;
 }
 
-.toggle_switch input[type="checkbox"]:checked+label::after {
+.toggle_switch input[type="checkbox"]:checked + label::after {
   left: 17px;
 }
 
@@ -530,7 +546,7 @@ nav .logo_box a svg {
   transform: rotate(40deg) translateY(-3px);
 }
 
-/* burger_menu 
+/* burger_menu
 ------------------------------ */
 .burger_menu_container {
   padding: 0 0.5rem;
@@ -681,7 +697,7 @@ nav .logo_box a svg {
   background: #fff;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
   border: 2px solid white;
-  z-index: 99999
+  z-index: 99999;
 }
 
 .sample_btns li {
