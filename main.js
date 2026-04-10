@@ -62,7 +62,7 @@ for (let link of sidebar_links) {
   });
 }
 
-search_form.addEventListener("submit", function (e) {
+search_form?.addEventListener("submit", function (e) {
   e.preventDefault();
   const form_row = e.target.querySelector(".form_row");
   const search_value = form_row.querySelector("input[type='search']").value;
@@ -77,7 +77,7 @@ search_form.addEventListener("submit", function (e) {
   //   console.log(search_value);
 });
 
-document.querySelector('.search_form').addEventListener('mouseenter', function () {
+document.querySelector('.search_form')?.addEventListener('mouseenter', function () {
   search_form.classList.add('wide');
   const form_row = this.querySelector('.form_row');
   const form_input = form_row.querySelector('input');
@@ -85,11 +85,18 @@ document.querySelector('.search_form').addEventListener('mouseenter', function (
   console.log(form_input)
 })
 
-document.querySelector('.search_form').addEventListener('mouseleave', function () {
+document.querySelector('.search_form')?.addEventListener('mouseleave', function () {
   search_form.classList.remove('wide')
   const form_row = this.querySelector('.form_row');
   const form_input = form_row.querySelector('input');
   form_input.style.removeProperty('border-color');
 })
+   const activeLink = window.location.pathname;
 
+        document.querySelectorAll('.sample_btns li a').forEach(link => {
+            if(link.href.includes(`${activeLink}`)) {
+              link.classList.add('triggered');
+            }
+            console.log(activeLink)
+        })
 window.onload = toggleFn 

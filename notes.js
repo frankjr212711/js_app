@@ -1,7 +1,3 @@
-
-
-
-
 /*
     ARGUMENT PASSING
 -----------------------------
@@ -69,8 +65,170 @@ setName(person);
 console.log(person.name)        // 'alice'
 
 
-The only change between this example and the previous one is that two lines have been added to setName() that redefine obj as a new object with	a different name. When person is passed into setName(), its name property is set to “Alice.” Then the variable obj is set to be	a new object and its name property is set to “Greg.” If person were	passed by reference, then person would automatically be changed to point to the object whose name is “Greg.” However, when person.name is accessed again, its value	 is	“Alice,” indicating	that the original reference	remained intact	even though	the	argument's	value	changed
-inside	the	function.	When	obj	is	overwritten	inside	the	function,	it	becomes	a
-pointer	to	a	local	object.	That	local	object	is	destroyed	as	soon	as	the	function
-finishes	executing
+The only change between this example and the previous one is that two lines have been added to setName() that redefine obj as a new object with	a different name. When person is passed into setName(), its name property is set to “Alice.” Then the variable obj is set to be	a new object and its name property is set to “Greg.” If person were	passed by reference, then person would automatically be changed to point to the object whose name is “Greg.” However, when person.name is accessed again, its value	 is	“Alice,” indicating	that the original reference	remained intact	even though	the	argument's value changed inside	the	function. When obj is overwritten inside the function, it becomes a pointer	to a local object.	That local object is destroyed as soon as the function finishes	executing.
+
+
+/* 
+    DETERMINING TYPE
+---------------------------------------------
+
+The typeof operator, introduced in the previous chapter, is the best way to determine if a variable is a primitive type. More specifically, it's the best way to determine if a variable is a string, number, boolean, or undefined. If the value is an object or null, then typeof return "object", as in this example: 
+
+
+let s= 'alice';
+let b = true;
+let i = 22;
+let u; 
+let n = null;
+let o = new Object()
+
+
+console.log(typeof s)   // 'string'
+console.log(typeof b)   // 'boolean'
+console.log(typeof i)   // 'number'
+console.log(typeof u)   // 'undefined'
+console.log(typeof n)   // 'object'
+console.log(typeof o)   // 'object'
+
+Although typeof works well for primitive values, it's of little use for reference values. Typically, you don't care that a value is an object -- what you really want to know is what type of object it is. To aid in this identification, ECMAScript provides the instanceof operator, which is ued with the following syntax: 
+
+
+    result = variable instanceof constructor
+
+
+The instanceof operator returns true if the variable is an instance of the given reference type (identified by its prototype chain)
+
+
+let obj = new Object();
+let arr = []
+let num =33
+let name = 'ike'
+
+console.log(obj instanceof Object); // true
+console.log(arr instanceof Array)   // true
+console.log(Array.isArray(arr))     // true
+
+console.log(num instanceof Number)     // false
+console.log(name instanceof String)     // false
+
+
+All reference values, by definition, are instances of Object, so the instanceof operator always returns true when used with a reference value and the Object constructor. Similarly, if instanceof is used with primitive value, it will always return false, because primitives aren't objects.
+
+
+/* 
+        EXECUTION CONTEXT AND SCOPE
+-------------------------------------------------
+
+The 
+
+
+var color = "blue";
+function changeColor() {
+  if (color === "blue") {
+    color = "red";
+} else {
+    color = "blue";
+}
+}
+changeColor();
+
+// console.log(window.color)    // 'red'
+
+
+In this simple example, the function changeColor() has scope chain with two objects in it: its own variable object (upon which the arguments object is defined) and the global context's variable object. 
+
+The variable color is therefore accessible inside the function, because it can be found in the scope chain.
+
+Additionally, locally defined variables can be used interchangeably with global variables in a local context. 
+
+eg.
+
+
+var color = 'blue';
+
+function changeColor() {
+    let anotherColor = 'red';
+    
+    function swapColors() {
+        let tempColor = anotherColor;
+        anotherColor = color;
+        color = tempColor;
+        // color, anotherColor and tempColor are all accessible here
+    }
+    // color and anotherColor are accessible here, but not tempColor
+    swapColors();
+}
+// only color is accessible here changeColor();
+
+
+There are three execution contexts in this code: global context, the local context of changeColor(), and the local context of swapColors(). The global context has one variable, color, and one function, changeColor(). The color context of changeColor() has one variable named anotherColor and one function named swapColor(),  but it can also access the variable color from the global context.
+
+The local context of swapColor() has one variable, named tempColor, that is accessible only within that context. Neither the global context nor the local context of changeColors() has access to tempColor. With swapColors(), though, the variables of the other two contexts are fully accessible because they are parent execution contexts.
+
+NOTE: 
+
+Function arguments are considered to be variables and follow the same access rules as any other variable in the execution context.
+
+
+/*
+    SCOPE CHAIN AUGEMENTATION
+---------------------------------------------
+
+Even though there are only two primary types of execution context, global and function (the third exists inside of a call to eval() ), there are other ways to augment the scope chain. Certain statements cause a temporary addition to the front of the scope chain that is later removed after code execution. There are two times when this occurs, specifically when execution enters either of the following: 
+
+    - The catch block in a try-catch statement
+    - A with statement
+
+Both of these statements add a variable object to the front of the scope chain. For the with statement, the specified object is added to the scope chain; for the catch thrown error object 
+
+function buildUrl() {
+    let q = '?debug=true';
+
+    with(location) {
+        let url = href + qs;
+    }
+}
+
+In this example, the with statement is acting on the location object, so location itself is added to the front of the scope chain. There is one variable, qs, defined in the buildUrl() function. When the variable href is referenced, it's actually referring to location.href, which is in its own variable object. When the variable qs is referenced, its referring to the variable defined in buildUrl(), which is in the function context's variable object. Inside the with statement is a variable declaration for url, which becomes part of the function's context and can therefore, be returned as the function value.
+
+
+
+
+
+
+
+/*  
+    VARIABLE DECLARATION
+--------------------------------
+
+ECMAScript variables can either be function scoped or block scoped. Furthermore, a block scoped variable can be declared as a const.
+
+/* Function Scope Declaration Using var 
+--------------------------------------------
+
+When a variable is declared using var, it is automatically added to the most immediate context avaialable. In a function, the most immediate one is the function's local context; in a with statement, the most immediate is the function context. If a variable is initialized without first being declared, it gets 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 */
+
+
+function buildUrl() {
+    let qs = '?debug=true';
+
+    with(location) {
+        let url = href + qs;
+    }
+    return url;
+}
