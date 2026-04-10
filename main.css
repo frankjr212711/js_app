@@ -10,6 +10,7 @@
 img, picture, svg, video {
   display: block;
   width: 100%;
+
 }
 input, textarea, button, select {
   font: inherit;
