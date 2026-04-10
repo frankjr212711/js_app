@@ -208,7 +208,7 @@ nav .logo_box a svg {
   position: absolute;
   /* top: 150px; */
   background: white;
-  min-width: 63%;
+  min-width: 73%;
   height: auto;
   display: flex;
   justify-content: center;
@@ -219,7 +219,7 @@ nav .logo_box a svg {
   /* border: 1px solid #eee; */
   border-radius: 8px;
   box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.13);
-  z-index: 999999;
+  z-index: 9999;
   transition: 0.3s var(--ease-spring-2);
 
   visibility: hidden;
@@ -247,7 +247,7 @@ nav .logo_box a svg {
   visibility: visible;
   opacity: 1;
   transform: translateX(-45.5%) scale(1);
-  
+
 }
 
 .nav_links li:hover .nav_dropdown_ {
