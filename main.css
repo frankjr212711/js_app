@@ -207,7 +207,7 @@ nav .logo_box a svg {
 .nav_links .nav_dropdown {
   position: absolute;
   /* top: 150px; */
-  background: white;
+  background: #f9f9f9;
   min-width: 73%;
   height: auto;
   display: flex;
@@ -218,8 +218,8 @@ nav .logo_box a svg {
   transform: translateX(-45%) scale(0.89);
   /* border: 1px solid #eee; */
   border-radius: 8px;
-  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.13);
-  z-index: 9999;
+  box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.13), inset 2px 2px 2px 0 rgb(255, 255, 255);
+  z-index: 999999;
   transition: 0.3s var(--ease-spring-2);
 
   visibility: hidden;
@@ -243,7 +243,7 @@ nav .logo_box a svg {
 }
 
 .nav_links li:hover .nav_dropdown {
-    top: 56px;
+    top: 50px;
   visibility: visible;
   opacity: 1;
   transform: translateX(-45.5%) scale(1);
