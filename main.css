@@ -186,6 +186,7 @@ nav .logo_box a svg {
   border-radius: 50px;
 }
 
+
 /* link.active */
 .nav_links li a.active {
   color: var(--fds-blue-80);
@@ -327,9 +328,15 @@ nav .logo_box a svg {
 .nav_links li:hover {
   background: deeppink;
   & a {
-    color: white;
+    color: #fff !important
   }
 }
+.nav_links li:hover a {
+  color: white;
+}
+
+
+
 
 .enter_color {
   background: #f0f0f0;
