@@ -164,7 +164,7 @@ nav {
   /*padding: 0 1rem;*/
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.13);
   /* border: 1px solid red; */
-  font-family: "Poppins";
+  font-family: "segoe UI";
 }
 
 nav .logo_box a svg {
@@ -184,7 +184,6 @@ nav .logo_box a svg {
   display: inline-block;
   padding: 0.5rem 0;
   border-radius: 50px;
-  font-family: "Poppins";
 }
 
 /* link.active */
