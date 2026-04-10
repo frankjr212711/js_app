@@ -275,11 +275,11 @@ nav .logo_box a svg {
   padding: 1rem 0;
 }
 
-.nav_links li .nav_dropdown_ a,
+.nav_links li .nav_dropdown_ .how_we_do_it a,
 .nav_links li .nav_dropdown .team a,
 .nav_links li .nav_dropdown .industry a,
 .nav_links li .nav_dropdown .need a {
-  color: #111;
+  color: #111 !important;
   font-weight: 400;
   display: block;
   padding: 0.5rem 0;
