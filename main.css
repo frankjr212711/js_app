@@ -306,12 +306,11 @@ nav .logo_box a svg {
 
 .nav_links li {
   padding: 0.5rem;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
 
 .nav_links li:hover {
-  background: #f0f0f0;
-
+  background: deeppink;
   & a {
     color: white;
   }
