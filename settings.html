@@ -60,8 +60,28 @@
     <title>index</title>
   </head>
 
+  
+  <style>
+      .content ul {
+        width: 300px;
+    
+        /*box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .11);*/
+        display: inline-block;
+        /*border: 1px solid grey;*/
+        
+      }
+      .content ul li {
+        background: #eee;
+        margin: .5rem 0;
+        padding: .5rem;
+        font-size: 18px;
+        font-weight: 700;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+      
+  </style>
   <body>
-    <noscript> Hello world </noscript>
 
     <span class="settings_icon">
       <svg
@@ -212,16 +232,24 @@
         <h2 class="">Settings</h2>
       </div>
       <div class="content">
-        <h3>Pring page setup</h3>
-
-
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, quasi incidunt. Ducimus eius inventore dolorum cum iste dolor nesciunt? Fuga ex omnis dicta ducimus quo ut eveniet ullam illum aspernatur!</p>
+        
+        <ul>
+          <li><a href="">one</a></li>
+          <li><a href="">two</a></li>
+          <li><a href="">three</a></li>
+          <li><a href="">four</a></li>
+        </ul>
+        
+        
+        
       </div>
     </div>
     <!-- SCRIPT.JS -->
 
     <script>
+      const lis = document.querySelectorAll('ul li');
       
+      const.log(lis)
     </script>
   </body>
 </html>

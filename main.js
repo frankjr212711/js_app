@@ -99,4 +99,18 @@ document.querySelector('.search_form')?.addEventListener('mouseleave', function 
             }
             console.log(activeLink)
         })
+        
+        
+        
+        const scrollUpBtn = document.querySelector('.scroll_up_btn');
+        
+        scrollUpBtn.addEventListener('click', function() {
+          document.querySelector('.content').scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          })
+        console.log(this);
+        })
+        
+        
 window.onload = toggleFn 
