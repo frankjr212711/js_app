@@ -308,3 +308,14 @@ console.log(b) // ReferenceError: b is not defined
 
 
 */
+
+function foo() {
+    let c; 
+}
+console.log(c);
+
+function getAge(x, y) {
+return {x, y};
+}
+
+console.log(getAge(22, 'ok'));
