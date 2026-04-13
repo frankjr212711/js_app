@@ -99,7 +99,7 @@ select {
         1);
 
 
-  
+
 
 
 
@@ -616,12 +616,15 @@ nav .logo_box a svg {
     border-radius: 8px;
     background: #f9f9f9;
     box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.13);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .content {
     height: 100%;
-    overflow: auto;
+    /* overflow: auto;
+     */
+     /* scroll-behavior: contain; */
+
     padding: 1rem 1rem 8rem 1rem;
 }
 
@@ -700,33 +703,30 @@ nav .logo_box a svg {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 4rem;
+    bottom: 2rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* padding: 1rem; */
     border-radius: 50px;
-    /* background: rgba(255, 255, 255, .5); */
     background: #fff;
     box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.15);
-    border: 2px solid white;
-    z-index: 99999;
+    z-index: 999;
+    /*border:  1px solid red;*/
 }
 
 .sample_btns li {
     display: inline-block;
-    padding: 0.25rem;
-    /* border: 1px solid red; */
+    /*padding: 0 0.25rem;*/
 }
 
 .sample_btns li a {
     width: 100%;
-    padding: 0.55rem 0.7rem;
+    height: 100%;
+    /*padding: 0rem 0.7rem;*/
     border-radius: 50px;
     display: inline-block;
     transition: 0.3s var(--ease-2);
     border: 1px solid lime;
-    border: 1px solid #eee;
 }
 
 .sample_btns li a:hover {
@@ -752,4 +752,7 @@ nav .logo_box a svg {
     border: 2px solid #999;
     border-radius: 50px;
     cursor: pointer;
+    /*
+    visibility: hidden;
+    opacity: 0;*/
 }
