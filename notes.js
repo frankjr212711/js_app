@@ -142,10 +142,21 @@ console.log(c) // ReferenceError: c is not defined
         GARBAGE COLLECTION
 
 
-    JavaScript is a garbage-collected language, meaning that the execution environment is responsible for managing the memory required during code execution. In languages such as C and C++, keeping track of memory usage is a principle concern and the source of many 
+    JavaScript is a garbage-collected language, meaning that the execution environment is responsible for managing the memory required during code execution. In languages such as C and C++, keeping track of memory usage is a principle concern and the source of many issues for developers.
 
+
+    // 
+        PERFORMANCE 
+---------------------------------------------------
  
     */
+    const obj = {name: 'mike'}
+
+
+   const objk = Object.freeze({name: 'ike', age: 22})
+   objk.isAdult = true;
+   console.log(objk)
+   console.log(obj)
 
 
 
