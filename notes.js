@@ -148,16 +148,62 @@ console.log(c) // ReferenceError: c is not defined
     // 
         PERFORMANCE 
 ---------------------------------------------------
+    
+Keeping the amount of used memory to a minimum leads to better page performance. The best way to optimize memory usage is to ensure that you're keeping around only data that is necessary for the execution of your code. When data is no longer necessary, it's best to set the value to null, freeing up the reference--this is called dereferencing the value. 
+
+This advice applies mostly to global values and properties of global objects. Local variables are dereferenced automatically when they go out of context, as in this eg.
+
+
+
+function createPerson(name) {
+    let localPerson = new Object();
+    localPerson.name = 'name';
+    return localPerson;
+}
+let globalPerson = createPerson('alice');
+
+// do something with globalPerson
+
+globalPerson = null;
+
+console.log(globalPerson);  // null
+
+
+/* 
+    PERFORMANCE BOOSTS WITH const AND let DECLARATIONS
+--------------------------------------------------------
+Because const and let are scoped to block instead of a function, depending on how your code is organized this may signal to the garbage collector that an allocated variable is eligible for cleanup far sooner than it would have been when using var. This would occur in situations when the block scope terminates far sooner than the function scope.
+
+
  
-    */
-    const obj = {name: 'mike'}
+/* HIDDEN CLASSES AND THE delete OPERATION
+*/
+
+function article() {
+    this.title = "Inauguration Ceremony";
+    this.purpose = true
+}
+let a1 = new article()
+let a2 = new article()
+
+// console.log(a1);
+
+function SecondArticle(title, opt_author) {
+    // this.title = 'Inaugration Ceremony';
+    this.title = title;
+    this.author = opt_author;
+}
+
+let author1= new SecondArticle('Inaugration Ceremony', 'Ben');
+let author2 = new SecondArticle('Money is the motivation','Jake');
+
+delete author1.author;
+
+console.log(author1)
+console.log(author2)
 
 
-   const objk = Object.freeze({name: 'ike', age: 22})
-   objk.isAdult = true;
-   console.log(objk)
-   console.log(obj)
-
-
-
-  
+let name = 'Jake';
+setInterval(() => {
+    // console.log(name)
+}, 100)
