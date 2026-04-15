@@ -242,16 +242,22 @@
 
     .modal_element span {
       position: absolute;
-      padding: 0.5rem;
+      top: .5rem ;
+      left: .5rem;
+      padding: 0.25rem;
       display: inline-block;
       border-radius: 50px;
       cursor: pointer;
+      transition: .2s ease;
     }
 
     .modal_element span:hover {
       background: rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, .69);
     }
-
+    .modal_element span:hover svg {
+      fill: #191919;
+    }
     .modal .modal_element {
       display: block;
     }
