@@ -119,11 +119,10 @@
     .wrapper {
       width: 1000px;
       margin: 2rem auto;
-      height: 350px;
+      height: auto;
       padding: 0.5rem;
       border: 4px solid slategray;
       box-shadow: 2px 3px 6px 0 rgba(0, 0, 0, 0.31);
-
       overflow: hidden;
     }
 
@@ -213,7 +212,7 @@
     .dashboard button {
       border: none;
       font-size: 12px;
-      background: #e0e0e0;
+      background: #f0f0f0;
       padding: 0.25rem 0.5rem;
       margin: 2rem 0;
       cursor: pointer;
@@ -224,8 +223,9 @@
     }
 
     .dashboard button:hover {
-      box-shadow: 0 6px 2px -4px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
+      /* box-shadow: 0 6px 1px -3px rgba(0, 0, 0, 0.3); */
+      /* transform: translateY(-2px); */
+      background: #f9f9f9;
     }
 
     .modal_element {
@@ -255,12 +255,62 @@
       background: rgba(0, 0, 0, 0.4);
       background: rgba(255, 255, 255, .69);
     }
+
     .modal_element span:hover svg {
       fill: #191919;
     }
+
     .modal .modal_element {
       display: block;
     }
+
+    .toggle_ {
+      width: 40px;
+      height: 40px;
+      /* border: 3px solid slategray; */
+    }
+
+    .toggle_ input {
+      /* visibility: hidden; */
+      display: none;
+    }
+
+    .toggle_ label {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+      border: 4px solid #4267b2;
+      border-radius: 4px;
+    }
+    
+    .toggle_ label::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 22px;
+      height: 13px;
+      border-width: 5px;
+      border-style: solid;    
+      
+      border-left: 6px;
+      border-bottom: 6px;
+      border-color: slategray;
+      transform: rotate(135deg);
+
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .toggle_ input[type="checkbox"]:checked +label::before {
+      border-color: #4267b2;
+      visibility: visible;
+      opacity: 1;
+    }
+
+
 
     /* @media screen and (max-width: 968px) {} */
   </style>
@@ -305,11 +355,24 @@
 
     <div class="dashboard">
       <button class="color_theme">Set Color Theme</button>
-      <button class="disable_btn">Disable</button>
+      <button class="disabled_btn">Disable</button>
 
-      <input type="checkbox" />
-      <button class="color_theme">Update</button>
+      
+    
+
+      <button class="update_btn">Update</button>
+
+
+      <div class="toggle_">
+        <input type="checkbox" id="toggle">
+        <label for="toggle"></label>
+      </div>
+
+
+      <h1 class="text"></h1>
     </div>
+
+
 
 
   </div>
@@ -320,25 +383,42 @@
 
     document.querySelector('.color_theme').addEventListener('click', function (e) {
       document.body.classList.add('modal');
+      document.querySelector('.dashboard input[type="checkbox"]').setAttribute('disabled', true);
+      
     })
 
     document.querySelector('.modal_element span').addEventListener('click', function () {
       document.body.classList.remove('modal');
+      document.querySelector('.dashboard input[type="checkbox"]').removeAttribute('disabled');
 
     })
 
+    
+    document.querySelector('.disabled_btn').addEventListener('click', function() {
+      this.setAttribute('disabled', true);
+    }) 
 
-    function triggerFn(e) {
-      console.log("trigger triggered", e.target);
-    }
-    const clickFn = (e) => {
-      const that = e.target;
-      triggerFn(e);
-    };
+    document.querySelector('.update_btn').addEventListener('click', function() {
+      let num = 10
+      let res = num.toFixed(2);
+      let res2 = 'Love is the greatest';
+      let res3 = res2.replace("Love", "Faith");
+      // this.appendChild(res)
 
-    for (let card of cards) {
-      card.addEventListener("click", clickFn);
-    }
+
+     document.querySelector('.text').innerText = res3;
+     document.querySelector('.text').style.setProperty('color', '#999');
+  
+    }) 
+
+
+
+ for(let i = 0; i < cards.length; i++) {
+  cards[i].onclick = () => {
+    console.log(i)
+
+  };
+ }
   </script>
 </body>
 
