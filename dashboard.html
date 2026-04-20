@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/main.css" />
+  <script defer src="/main.js"></script>
+  <script defer src="/notes.js"></script>
+
+
+  <style>
+    @property --rotation {
+      syntax: '<angle>';
+      initial-value: 0turn;
+      inherits: false;
+    }
+
+
+    :root {
+
+      --clr-white: #fff;
+      --clr-bl-primary: #339af0;
+      --clr-light: #fdffc4;
+      --clr-dark: #00332a;
+      --clr-primary: #dbffa2;
+      --clr-secondary: #c3fcf2;
+      --clr-accent: #ecb10f;
+      --clr-dark-grey: #333;
+
+
+      --foreground: var(var(--clr-dark));
+      --foreground: var(var(--clr-light));
+
+      --ff-title: 'Times';
+      --ff-body: 'segoe ui';
+
+      --ease-spring-2: linear(0,
+          0.007,
+          0.029 2.2%,
+          0.118 4.7%,
+          0.625 14.4%,
+          0.826 19%,
+          0.902,
+          0.962,
+          1.008 26.1%,
+          1.041 28.7%,
+          1.064 32.1%,
+          1.07 36%,
+          1.061 40.5%,
+          1.015 53.4%,
+          0.999 61.6%,
+          0.995 71.2%,
+          1);
+    }
+
+    .darkmode {
+      --clr-white: #fff;
+      --clr-bl-primary: #339af0;
+      --clr-light: #fdffc4;
+      --clr-dark: #eee;
+      --clr-primary: #202302;
+      --clr-secondary: #00100d;
+      --clr-accent: #339af0;
+      --clr-dark-grey: #00332a;
+
+
+
+      --foreground: var(var(--clr-dark));
+      --foreground: var(var(--clr-light));
+
+      --ff-title: 'system ui';
+      --ff-body: 'trebuchet ms', serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      accent-color: #234567;
+    }
+
+    body {
+      width: 100%;
+      height: auto;
+      position: relative;
+      font-family: var(--ff-body);
+      background: #234567;
+      overflow: hidden;
+
+
+
+
+    }
+
+    .content {
+      width: 95%;
+      height: 100vh;
+      /* scroll-behavior: contain; */
+      margin: 2rem auto;
+      padding: 1rem;
+
+      display: grid;
+      place-items: center;
+
+
+      overflow: auto;
+
+      border: 4px solid slategray;
+    }
+
+
+    .dashboard {
+      position: relative;
+      width: 85%;
+      height: auto;
+      margin: 1rem auto 2rem;
+      background: var(--clr-secondary);
+      padding: 1rem;
+      border-radius: 4px;
+
+    }
+
+    nav {
+      width: fit-content;
+      margin: 4rem 0;
+      /* background: hsl(0 0% 0% / .8); */
+      background: var(--clr-dark-grey);
+      border-radius: 8px;
+      padding: 8px;
+      isolation: isolate;
+      anchor-name: --hovered-link;
+
+      li:hover {
+        anchor-name: --hovered-link;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+
+        /* height: 5px; */
+        z-index: -2;
+        top: calc(anchor(bottom) - 10px);
+        left: calc(anchor(left) + 1rem);
+        right: calc(anchor(right) + 1rem);
+        bottom: calc(anchor(bottom) + 5px);
+        border-radius: 10px;
+        position-anchor: --hovered-link;
+        transition: 300ms var(--ease-spring-2);
+        /* Easing Wizard */
+      }
+
+      &::after {
+        /* background: var(--clr-bl-primary); */
+        background: var(--clr-accent);
+      }
+
+      &:has(a:hover)::after {
+        top: anchor(top);
+        left: anchor(left);
+        right: anchor(right);
+        bottom: anchor(bottom);
+
+        @supports (corner-shape: squircle) {
+          corner-shape: squircle;
+          border-radius: 50%;
+          /* corner-shape: scoop; */
+        }
+      }
+
+      &:has(li:first-of-type a:hover)::after {
+        @supports (corner-shape: squircle) {
+          border-radius: 32px 50% 50% 32px;
+        }
+      }
+
+      &:has(li:first-of-type a:hover)::after {
+        @supports (corner-shape: squircle) {
+          border-radius: 50% 32px 32px 50%;
+        }
+      }
+
+      @supports (corner-shape: squircle) {
+        border-radius: 24px;
+        corner-shape: squircle;
+      }
+
+      >ul {
+        display: flex;
+        align-items: center;
+
+        a:is(:link, :visited) {
+          display: block;
+          padding: 1rem;
+          color: var(--clr-white);
+          font-weight: 600;
+          transition: .5s var(--ease-spring-2);
+
+        }
+      }
+    }
+
+    .content .dashboard h1 {
+      font-family: var(--ff-title);
+      color: var(--clr-dark)
+    }
+
+    .content article p {
+      color: var(--clr-dark);
+      width: 350px;
+      font-family: var(--ff-body);
+
+    }
+
+    .dashboard button {
+      border: none;
+      background: var(--clr-accent);
+      border-radius: 4px;
+      cursor: pointer;
+      position: absolute;
+      right: 2rem;
+    }
+
+    .dashboard button svg {
+      width: 50px;
+      height: 50px;
+      stroke-color: white;
+    }
+
+
+    /* inner-glow */
+
+    .inner_glow {
+      position: relative;
+      margin: 2rem 0;
+      width: 350px;
+      height: 300px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #fff;
+      box-shadow: 1px 2px 3px 0 rgb(0% 0% 0% /.4);
+      cursor: pointer;
+      border-radius: 1rem;
+      isolation: isolate;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        /* aspect-ratio: 0.6; */
+        z-index: -1;
+        border-radius: 1rem;
+        background-image: conic-gradient(from var(--rotation, 0turn), orangered, lightblue, lightgreen, gold, goldenrod, lightgreen, steelblue, red);
+
+
+        /* mask-image: linear-gradient(0deg, black, transparent 10%),
+        linear-gradient(180deg, black, transparent 10%),
+        linear-gradient(90deg, black, transparent 10%),
+        linear-gradient(270deg, black, transparent 10%)
+        */
+
+
+
+        ;
+
+
+
+
+
+
+        animation: 20s hue-rotation infinite;
+      }
+
+      h3 {
+        color: white;
+        font-size: 20px;
+        text-wrap: wrap;
+
+      }
+
+    }
+
+    @keyframes hue-rotation {
+      from {
+        --rotation: 0turn
+      }
+
+      to {
+        --rotation: 1turn
+      }
+    }
+
+
+
+
+
+
+
+
+
+    /* @media screen and (max-width: 968px) {} */
+  </style>
+  <title>dashboard</title>
+</head>
+
+<body>
+
+
+  <div class="content">
+    <div class="dashboard">
+
+      <button>
+        <svg viewBox="0 0 512 512" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+                stroke: #333;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 20px;
+              }
+
+              .cls-2 {
+                fill: #083b43;
+              }
+            </style>
+          </defs>
+          <title />
+          <circle class="cls-1" cx="256" cy="267.42" r="33.99" />
+          <polygon class="cls-1"
+            points="302.2 202.52 288.9 179.68 223.1 179.68 209.8 202.52 144 202.52 144 332.32 368 332.32 368 202.52 302.2 202.52" />
+          <circle class="cls-2" cx="337.8" cy="232.49" r="11.49" />
+        </svg>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/dashboard.html">Dashboard</a></li>
+          <li><a href="/items.html">Placed Items</a></li>
+          <li><a href="/settings.html">Settings</a></li>
+        </ul>
+      </nav>
+      <article>
+        <h1>Come See us</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo unde vitae quia veniam expedita molestiae vero
+          consequuntur reiciendis! Odit ullam itaque aut neque eveniet! Nobis quibusdam rerum est a natus!</p>
+      </article>
+
+      <section>
+        <div class="inner_glow">
+          <h3>I'am a card with an inner glow</h3>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT.JS -->
+  <script>
+    document.querySelector('.dashboard button').addEventListener('click', function () {
+      document.body.classList.toggle('darkmode')
+    })
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/main.css" />
+  <script defer src="/main.js"></script>
+  <script defer src="/notes.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      box-sizing: border-box;
+      font-family: "segoe UI";
+    }
+
+    :root {
+      --gray-0: #f8f9fa;
+      --gray-1: #f1f3f5;
+      --gray-2: #e9ecef;
+      --gray-3: #dee2e6;
+      --gray-4: #ced4da;
+      --gray-5: #adb5bd;
+      --gray-6: #868e96;
+      --gray-7: #495057;
+      --gray-8: #343a40;
+      --gray-9: #212529;
+      --gray-11: #0d0f12;
+      --gray-12: #030507;
+
+      --red-9: #c92a2a;
+      --red-2: #ffc9c9;
+
+      --green-9: #2b8a3e;
+      --green-1: #d3f9d8;
+
+      --fds-gray-05: #f2f3f5;
+
+      --fds-blue-5: #339af0;
+      --fds-blue-60: #1877f2;
+      --fds-blue-70: #4267b2;
+      --fds-blue-80: #3b5998;
+
+      --ease-2: cubic-bezier(0.25, 0, 0.4, 1);
+      --ease-4: cubic-bezier(0.25, 0, 0.2, 1);
+      --ease-3: cubic-bezier(0.25, 0, 0.3, 1);
+
+      --ease-out-4: cubic-bezier(0, 0, 0.1, 1);
+      --ease-out-5: cubic-bezier(0, 0, 0, 1);
+      --ease-spring-2: linear(0,
+          0.007,
+          0.029 2.2%,
+          0.118 4.7%,
+          0.625 14.4%,
+          0.826 19%,
+          0.902,
+          0.962,
+          1.008 26.1%,
+          1.041 28.7%,
+          1.064 32.1%,
+          1.07 36%,
+          1.061 40.5%,
+          1.015 53.4%,
+          0.999 61.6%,
+          0.995 71.2%,
+          1);
+
+      --ease-spring-4: linear(0,
+          0.009,
+          0.037 1.7%,
+          0.153 3.6%,
+          0.776 10.3%,
+          1.001,
+          1.142 16%,
+          1.185,
+          1.209 19%,
+          1.215 19.9% 20.8%,
+          1.199,
+          1.165 25%,
+          1.056 30.3%,
+          1.008 33%,
+          0.973,
+          0.955 39.2%,
+          0.953 41.1%,
+          0.957 43.3%,
+          0.998 53.3%,
+          1.009 59.1% 63.7%,
+          0.998 78.9%,
+          1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      accent-color: #234567;
+      color: var(--gray-4)
+    }
+
+    body {
+      min-height: 100vh;
+      position: relative;
+      background: #151515;
+
+
+      display: grid;
+      place-content: center;
+      perspective: 1000px;
+
+      /* overflow: hidden; */
+    }
+
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+
+    nav {
+      width: fit-content;
+
+      margin: 1rem 0;
+      position: fixed;
+      left: 1rem;
+      background: hsl(200 50% 20% / .3);
+      border-radius: 8px;
+      padding: 8px;
+      isolation: isolate;
+      box-shadow: 1px 2px 2px 0 rgb(0 0 0 /.2);
+
+      /* rotate: -90deg;
+      transform: translateX(-12rem) translateY(-10rem); */
+
+      z-index: 99;
+      anchor-name: --hovered-link;
+
+      li:hover {
+        anchor-name: --hovered-link;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        /* height: 5px; */
+        z-index: -2;
+        top: calc(anchor(bottom) - 10px);
+        left: calc(anchor(left) + 1rem);
+        right: calc(anchor(right) + 1rem);
+        bottom: calc(anchor(bottom) + 5px);
+        border-radius: 10px;
+        position-anchor: --hovered-link;
+        transition: 300ms var(--ease-spring-2);
+        /* Easing Wizard */
+      }
+
+      &::after {
+        background: var(--green-9)
+      }
+
+      &:has(a:hover)::after {
+        top: anchor(top);
+        left: anchor(left);
+        right: anchor(right);
+        bottom: anchor(bottom);
+
+        @supports (corner-shape: squircle) {
+          corner-shape: squircle;
+          border-radius: 50%;
+          /* corner-shape: scoop; */
+        }
+      }
+
+      &:has(li:first-of-type a:hover)::after {
+        @supports (corner-shape: squircle) {
+          border-radius: 32px 50% 50% 32px;
+        }
+      }
+
+      &:has(li:first-of-type a:hover)::after {
+        @supports (corner-shape: squircle) {
+          border-radius: 50% 32px 32px 50%;
+        }
+      }
+
+      @supports (corner-shape: squircle) {
+        border-radius: 24px;
+        corner-shape: squircle;
+      }
+
+      >ul {
+        display: flex;
+        align-items: center;
+
+        a:is(:link, :visited) {
+          display: block;
+          padding: 1rem;
+          color: #fff;
+          font-weight: 600;
+          transition: .5s var(--ease-spring-2);
+
+        }
+      }
+    }
+
+
+
+    .yoda {
+      width: 300px;
+      /* height: 450px; */
+      aspect-ratio: 13 / 16;
+      /* outline: 3px solid limegreen; */
+      /* background-image: url(/imgs/img_landscape_02.jpg); */
+      margin: 4rem 0;
+      cursor: pointer;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: rotate 500ms ease;
+
+    }
+
+    .yoda:hover {
+      rotate: x 25deg;
+    }
+
+    .yoda::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      /* background-color: lime; */
+      z-index: 100;
+      background-image: radial-gradient(circle, transparent 100px, black);
+      opacity: 0;
+      transition: opacity 500ms ease
+    }
+
+    .yoda:hover::before {
+      opacity: 1;
+    }
+
+    .yoda::after {
+      content: '';
+      position: absolute;
+      inset: 80% .5rem .5rem;
+      translate: 0px;
+      transform: translateZ(-100px);
+      background: orangered;
+      background: black;
+      z-index: 1;
+      filter: blur(1rem);
+      transition: rotate 500ms ease, translate 500ms ease;
+    }
+
+    .yoda:hover::after {
+      rotate: x -35deg;
+      translate: 0 60px;
+    }
+
+    .bg-image {
+      position: absolute;
+      z-index: 10;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .logo,
+    .front-image {
+      position: absolute;
+    }
+
+    .logo {
+      z-index: 1000;
+      filter: invert(1);
+      width: 65%;
+      margin-inline: auto;
+      inset: auto 0 2rem;
+      text-align: center;
+      transform: translateY(0rem) translateZ(10px);
+      rotate: x calc((-35deg) - 1);
+      transition: all 500ms ease;
+    }
+
+    .yoda:hover .logo,
+    .yoda:hover .front-image {
+      rotate: x -30deg;
+      transform: translateY(-1rem) translateZ(-10px);
+    }
+
+    .logo .swars-text {
+      font-size: 15px;
+      display: block;
+      /* rotate: x -30deg;
+      transform:  translateZ(20px); */
+    }
+
+    .logo .yoda-text {
+      font-size: 45px;
+      font-family: georgia;
+      color: orangered;
+    }
+
+    .front-image {
+      opacity: 0;
+      z-index: 90;
+      scale: 1;
+      transform-origin: bottom;
+      box-shadow: 1px 1px 2px 0 rgb( 0 0 0 /.3);
+      transition: all 500ms ease;
+    }
+    .yoda:hover .front-image {
+      opacity: .98;
+
+    }
+
+    /* @media screen and (max-width: 968px) {} */
+  </style>
+  <title>items</title>
+</head>
+
+<body>
+
+   <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/dashboard.html">Dashboard</a></li>
+          <li><a href="/items.html">Placed Items</a></li>
+          <li><a href="/settings.html">Settings</a></li>
+        </ul>
+      </nav>
+
+
+
+  <div class="yoda">
+    <!-- <img class="logo" src="/imgs/img_landscape_03.jpg" alt=""> -->
+
+    <h2 class="logo">
+      <span class="swars-text">STAR WARS</span>
+      <span class="yoda-text">-YODA-</span>
+    </h2>
+    <img class="front-image" src="/imgs/img_portrait_05.jpg" alt="">
+    <img class="bg-image" src="/imgs/img_landscape_02.jpg" alt="">
+  </div>
+
+
+
+
+
+
+
+
+  <!-- SCRIPT.JS -->
+  <script>
+
+
+  </script>
+</body>
+
+</html>
